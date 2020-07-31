@@ -2,5 +2,5 @@ package LibraryDatabase;
 
 public enum Status
 {
-    LOAN, SOLD, DAMAGED
+    IN_STOCK, LOAN, SOLD, DAMAGED
 }

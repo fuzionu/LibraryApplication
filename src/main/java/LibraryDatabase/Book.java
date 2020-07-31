@@ -2,15 +2,15 @@ package LibraryDatabase;
 
 public class Book
 {
-    private final String author;
-    private final String title;
-    private final Cover cover;
-    private final int id;
-    private final int pages;
-    private final int chapters;
-    private final double sellPrice;
-    private final double loanPrice;
-    private Status status;
+    final String author;
+    final String title;
+    final Cover cover;
+    final int id;
+    final int pages;
+    final int chapters;
+    final double sellPrice;
+    final double loanPrice;
+    Status status;
 
     public Book(String author, String title, Cover cover, int id, int pages, int chapters,
                 double sellPrice, double loanPrice, Status status)
