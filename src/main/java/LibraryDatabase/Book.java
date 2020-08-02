@@ -65,4 +65,10 @@ public class Book
     {
         return id;
     }
+
+    public double getSellPrice() { return sellPrice; }
+
+    public double getLoanPrice() { return loanPrice; }
+
+    public Status getStatus() { return status; }
 }
