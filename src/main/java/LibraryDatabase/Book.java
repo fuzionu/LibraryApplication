@@ -8,8 +8,8 @@ public class Book
     final int id;
     final int pages;
     final int chapters;
-    final double sellPrice;
-    final double loanPrice;
+    double sellPrice;
+    double loanPrice;
     Status status;
 
     @Override
