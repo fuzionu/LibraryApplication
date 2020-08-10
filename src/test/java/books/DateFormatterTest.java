@@ -1,11 +1,9 @@
-package LibraryDatabase;
+package books;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
-import static LibraryDatabase.DateFormatter.MalformedJsonException;
-import static LibraryDatabase.DateFormatter.NoInternetConnectionException;
+import static books.DateFormatter.MalformedJsonException;
+import static books.DateFormatter.NoInternetConnectionException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -27,7 +25,7 @@ class DateFormatterTest
     }
 
     @Test
-    void shouldThrowRuntimeException() throws IOException
+    void shouldThrowRuntimeException()
     {
         // given
         DateFormatter dateFormatter = new DateFormatter(mockAPIThrowingExc(RuntimeException.class));
@@ -37,7 +35,7 @@ class DateFormatterTest
     }
 
     @Test
-    void shouldThrowMalformedJsonException() throws IOException
+    void shouldThrowMalformedJsonException()
     {
         // given
         DateFormatter dateFormatter = new DateFormatter(mockAPIThrowingExc(MalformedJsonException.class));
@@ -47,7 +45,7 @@ class DateFormatterTest
     }
 
     @Test
-    void shouldThrowNoInternetConnectionException() throws IOException
+    void shouldThrowNoInternetConnectionException()
     {
         // given
         DateFormatter dateFormatter = new DateFormatter(mockAPIThrowingExc(NoInternetConnectionException.class));
@@ -66,18 +64,12 @@ class DateFormatterTest
     {
         API api = mock(API.class);
 
-        try
-        {
-            when(api.getCurrentTime()).thenReturn(fullJsonData());
-        }
-        catch (IOException ignored)
-        {
-        }
+        when(api.getCurrentTime()).thenReturn(fullJsonData());
 
         return api;
     }
 
-    private API mockAPIThrowingExc(Class<? extends Exception> exc) throws IOException
+    private API mockAPIThrowingExc(Class<? extends Exception> exc)
     {
         API api = mock(API.class);
         when(api.getCurrentTime()).thenThrow(exc);

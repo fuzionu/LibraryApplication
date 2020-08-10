@@ -1,4 +1,4 @@
-package LibraryDatabase;
+package books;
 
 public enum Status
 {

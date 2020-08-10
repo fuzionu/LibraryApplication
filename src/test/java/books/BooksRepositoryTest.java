@@ -1,12 +1,12 @@
-package LibraryDatabase;
+package books;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static LibraryDatabase.Cover.*;
-import static LibraryDatabase.Status.*;
+import static books.Cover.*;
+import static books.Status.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static java.util.Arrays.asList;
 

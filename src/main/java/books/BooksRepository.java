@@ -1,13 +1,13 @@
-package LibraryDatabase;
+package books;
 
-import LibraryDatabase.exceptions.WrongIdException;
-import LibraryDatabase.exceptions.WrongTitleException;
+import books.exceptions.InvalidIdException;
+import books.exceptions.InvalidTitleException;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static LibraryDatabase.Cover.*;
-import static LibraryDatabase.Status.*;
+import static books.Cover.*;
+import static books.Status.*;
 import static java.util.Arrays.asList;
 
 public class BooksRepository
@@ -65,9 +65,11 @@ public class BooksRepository
             {
                 return book;
             }
+
+
         }
 
-        throw new WrongIdException();
+        throw new InvalidIdException();
     }
 
     public Book getBookByTitle(String title)
@@ -80,7 +82,7 @@ public class BooksRepository
             }
         }
 
-        throw new WrongTitleException();
+        throw new InvalidTitleException();
     }
 
     public Set<Book> getBooksByCover(Cover cover)

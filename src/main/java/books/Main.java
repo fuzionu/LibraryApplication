@@ -1,9 +1,9 @@
-package LibraryDatabase;
+package books;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        System.out.println("Library Database");
+        System.out.println("Library database");
     }
 }

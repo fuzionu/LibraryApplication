@@ -1,9 +1,9 @@
-package LibraryDatabase;
+package books;
 
 import org.junit.jupiter.api.Test;
 
-import static LibraryDatabase.Cover.SOFT;
-import static LibraryDatabase.Status.IN_STOCK;
+import static books.Cover.SOFT;
+import static books.Status.IN_STOCK;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest
