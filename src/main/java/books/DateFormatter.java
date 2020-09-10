@@ -1,5 +1,7 @@
 package books;
 
+import books.exceptions.NoInternetConnectionException;
+
 public class DateFormatter
 {
     private final API api;
@@ -19,40 +21,29 @@ public class DateFormatter
 
     private String formatTime()
     {
-        String[] splittedDateTime = splitDateTime("\\.");
-        return splittedDateTime[0].split("T")[1];
+        return splitDateTime("\\.")[0].split("T")[1];
     }
 
     private String formatDate()
     {
-        String date = splitDateTime("T")[0];
+        try
+        {
+            String date = splitDateTime("T")[0];
 
+            String day = date.substring(8, 10);
+            String month = date.substring(5, 7);
+            String year = date.substring(0, 4);
 
-        String day = date.substring(8, 10);
-        String month = date.substring(5, 7);
-        String year = date.substring(0, 4);
-
-        return day + "." + month + "." + year;
+            return day + "." + month + "." + year;
+        }
+        catch (NoInternetConnectionException exc)
+        {
+            return "No internet connection";
+        }
     }
 
     private String[] splitDateTime(String splitter)
     {
         return api.getCurrentTime().split(splitter);
-    }
-
-    public static class MalformedJsonException extends RuntimeException
-    {
-        public MalformedJsonException(Throwable throwable)
-        {
-            super(throwable);
-        }
-    }
-
-    public static class NoInternetConnectionException extends RuntimeException
-    {
-        public NoInternetConnectionException(Throwable throwable)
-        {
-            super(throwable);
-        }
     }
 }

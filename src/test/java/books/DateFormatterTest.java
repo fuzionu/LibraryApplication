@@ -1,9 +1,8 @@
 package books;
 
+import books.exceptions.NoInternetConnectionException;
 import org.junit.jupiter.api.Test;
 
-import static books.DateFormatter.MalformedJsonException;
-import static books.DateFormatter.NoInternetConnectionException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
@@ -32,16 +31,6 @@ class DateFormatterTest
 
         // then
         assertPrecisely(RuntimeException.class, dateFormatter::formatFullDate);
-    }
-
-    @Test
-    void shouldThrowMalformedJsonException()
-    {
-        // given
-        DateFormatter dateFormatter = new DateFormatter(mockAPIThrowingExc(MalformedJsonException.class));
-
-        // then
-        assertPrecisely(MalformedJsonException.class, dateFormatter::formatFullDate);
     }
 
     @Test
